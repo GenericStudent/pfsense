@@ -30,7 +30,7 @@ $current_packages = get_pkg_info('all', false, true);
 
 // Loop each package and dispatch a notice if an update is available
 foreach($current_packages as $pkg_info) {
-    if ($pkg_info['version'] == $pkg_info['installed_version']) {
+    if ($pkg_info['version'] != $pkg_info['installed_version']) {
 		file_notice(gettext("Package update avaiable"), gettext("Package {$pkg_info['shortname']} has update from {$pkg_info['installed_version']} to {$pkg_info['version']}"));
     }
 }
